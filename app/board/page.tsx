@@ -22,7 +22,7 @@ export default async function Board() {
                     {
                         articles.articles.map((el) => {
                             return (
-                                <tr>
+                                <tr key={el.postUid}>
                                     <td>
                                         <Link href={`board/${el.postUid.toString()}`}>
                                             {el.title}
