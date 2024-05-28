@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default async function Board() {
     const response: AxiosResponse = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}:${process.env.NEXT_PUBLIC_BASE_PORT}/board`
+        `${process.env.NEXT_PUBLIC_BASE_URL}/board`
     )
 
     const articles:Articles =  new Articles(response);

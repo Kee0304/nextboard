@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function ArticleDetail({params}: {params:{id:string}}) {
     const detail = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}:${process.env.NEXT_PUBLIC_BASE_PORT}/board/${params.id}`
+        `${process.env.NEXT_PUBLIC_BASE_URL}/board/${params.id}`
     )
 
     return (
