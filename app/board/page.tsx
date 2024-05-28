@@ -3,20 +3,11 @@ import { Articles } from "./articleListDTO";
 import Link from "next/link";
 
 export default async function Board() {
-    // const response: AxiosResponse = await axios.get(
-    //     `${process.env.NEXT_PUBLIC_BASE_URL}:${process.env.NEXT_PUBLIC_BASE_PORT}/board`
-    // )
+    const response: AxiosResponse = await axios.get(
+        `${process.env.NEXT_PUBLIC_BASE_URL}:${process.env.NEXT_PUBLIC_BASE_PORT}/board`
+    )
 
-    // const articles:Articles =  new Articles(response);
-    const articles = {
-        articles: [
-            {
-                postUid: 1,
-                title: "test Title",
-                userId: "testuser7"
-            }
-        ]
-    }
+    const articles:Articles =  new Articles(response);
 
     return (
         <div>
