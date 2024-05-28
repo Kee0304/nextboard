@@ -1,0 +1,39 @@
+.pagecontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.boxcontent {
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.row {
+    margin: 20px 2px 20px 2px;
+}
+
+.inputRow {
+    margin: 20px 2px 20px 10px;
+    border-width: 0 0 1px;
+    border-color: darkgrey;
+}
+
+.input:focus {
+    outline: none;
+    border-width: 0 0 2px;
+    border-color:cornflowerblue;
+}
+
