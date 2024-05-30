@@ -1,14 +1,16 @@
-"use client"
+'use client'
 
 import { SubmitButton } from "@/component/submit/submit";
 import axios from "axios";
 import { useState } from "react"
 import styles from '../auth.module.css';
 import { SignInDTO } from "./signInDTO";
+import { useRouter } from "next/navigation";
 
 export default function SignUpPage() {
     const [userId, setId] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter();
 
     const signInData: SignInDTO = {
         userId: userId,
@@ -17,11 +19,14 @@ export default function SignUpPage() {
 
     async function signIn(signInData: SignUpDTO) {
         const response = await axios.post(
-            `${process.env.NEXT_PUBLIC_BASE_URL}:${process.env.NEXT_PUBLIC_BASE_PORT}/user/signin`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin`,
             signInData
         )
-
-        console.log(response)
+        if (response.status === 200) {
+            router.push(
+                '/board'
+            )
+        }
     }
 
     return (

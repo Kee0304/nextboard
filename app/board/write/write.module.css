@@ -1,0 +1,17 @@
+.writecontainer{
+    background-color: aliceblue;
+    width: 90%;
+    height: 90%
+}
+
+.contentcontainer{
+    padding: 30px;
+    height: 100%;
+    background-clip: content-box;
+    background-color: wheat;
+}
+
+.descriptioninput {
+    width: 64em;
+    height: 32em;
+}

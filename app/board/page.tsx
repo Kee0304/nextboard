@@ -3,7 +3,7 @@ import { Articles } from "./articleListDTO";
 import Link from "next/link";
 
 export default async function Board() {
-    const response: AxiosResponse = await axios.get(
+    const response: any = await axios.get(
         `${process.env.NEXT_PUBLIC_BASE_URL}/board`
     )
 
