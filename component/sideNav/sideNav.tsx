@@ -19,7 +19,6 @@ export default function SideNav() {
             emptyData
         )
         .then((res) => {
-            console.log(res)
             router.push('/auth/signin')
         })
         .catch((e) => {console.log(e.message)})

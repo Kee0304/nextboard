@@ -4,24 +4,30 @@ import { useState } from "react"
 import styles from './write.module.css'
 import { postArticleDTO } from "./postArticleDTO";
 import axios from "axios";
+import { SubmitButton } from "@/component/submit/submit";
+import { useRouter } from "next/navigation";
 
 export default function WritePage() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const router = useRouter();
 
-    async function postArticle() {
-        const data: postArticleDTO = {
-            title: title,
-            description: description
-        }
+    const data: postArticleDTO = {
+        title: title,
+        description: description
+    }
+    async function postArticle(data: any) {
 
         const response = await axios.post(
             `${process.env.NEXT_PUBLIC_BASE_URL}/board`,
-            data
+            data,
+            {
+                withCredentials: true
+            }
         )
 
         if (response.status === 201) {
-            console.log("success");
+            router.push(`/board/${response.data.postUid}`)
         } else {
             console.log(response)
         }
@@ -38,7 +44,7 @@ export default function WritePage() {
                     <input className={styles.descriptioninput} onChange={(e) => setDescription(e.target.value)}></input>
                 </div>
                 <div>
-                    <button onClick={postArticle}>저장</button> <button>취소</button>
+                    <SubmitButton originalTask={postArticle} message='저장' data={data}></SubmitButton> <button>취소</button>
                 </div>
             </div>
         </div>

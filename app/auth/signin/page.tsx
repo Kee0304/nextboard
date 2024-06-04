@@ -20,8 +20,12 @@ export default function SignUpPage() {
     async function signIn(signInData: SignUpDTO) {
         const response = await axios.post(
             `${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin`,
-            signInData
+            signInData,
+            {
+                withCredentials: true
+            }
         )
+        console.log(`response = ${response.data}`)
         if (response.status === 200) {
             router.push(
                 '/board'
