@@ -2,12 +2,12 @@ import axios, { AxiosResponse } from "axios";
 import { Articles } from "./articleListDTO";
 import Link from "next/link";
 import styles from './board.module.css'
+import axi from "@/utils/customaxios";
 
 export default async function Board() {
-    const response: any = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/board`
+    const response: any = await axi.get(
+        'board'
     )
-
     const articles:Articles =  new Articles(response);
 
     return (

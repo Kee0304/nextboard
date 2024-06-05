@@ -6,6 +6,7 @@ import { useState } from "react"
 import styles from '../auth.module.css';
 import { SignInDTO } from "./signInDTO";
 import { useRouter } from "next/navigation";
+import axi from "@/utils/customaxios";
 
 export default function SignUpPage() {
     const [userId, setId] = useState("");
@@ -18,13 +19,9 @@ export default function SignUpPage() {
     }
 
     async function signIn(signInData: SignUpDTO) {
-        const response = await axios.post(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin`,
-            signInData,
-            {
-                withCredentials: true
-            }
-        )
+        const response = await axi.post(
+            `auth/signin`,
+            signInData)
         console.log(`response = ${response.data}`)
         if (response.status === 200) {
             router.push(
